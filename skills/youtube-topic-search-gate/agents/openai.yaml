@@ -1,0 +1,4 @@
+interface:
+  display_name: "YouTube 选题搜索闸门"
+  short_description: "跨领域验证搜索需求、竞争差异与证据强度，再决定是否制作"
+  default_prompt: "Use $youtube-topic-search-gate to validate this YouTube topic before I start scripting."
