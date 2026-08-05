@@ -1,6 +1,6 @@
 # Subtitle acoustic alignment and QC
 
-Use this procedure after the final Fish Audio file exists.
+Use this procedure after the final recorded or synthesized voice file exists.
 
 ## Build the timing scaffold
 

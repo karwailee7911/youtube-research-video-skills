@@ -5,7 +5,7 @@ description: End-to-end workflow for research-led Chinese YouTube long videos in
 
 # YouTube Research Video Production
 
-Turn an approved topic into a publish-ready research-led long video. Keep the user responsible for generating the final voice in Fish Audio. Prepare everything before and after that handoff.
+Turn an approved topic into a publish-ready research-led long video. Treat the user's recorded or synthesized final voice as a handoff. Prepare everything before and after that handoff.
 
 Read [references/deliverable-contracts.md](references/deliverable-contracts.md) before creating files or handing work between stages. Read only the relevant domain reference:
 
@@ -99,7 +99,7 @@ Use 16:9 for standard inserts. Use a wide canvas such as 7200×900 only when a c
 
 Assign provisional placement by script cue. Wait for final audio before assigning exact timecodes. Do not rotate visuals on a fixed interval. Keep an image on screen while its evidence remains the subject.
 
-## Stage 4: Hand off to Fish Audio
+## Stage 4: Prepare the final-voice handoff
 
 Give the user:
 
