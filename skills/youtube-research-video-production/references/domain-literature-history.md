@@ -23,3 +23,13 @@ Record author, work, edition, translator or editor, publication date, volume, pa
 - Historical evidence versus generated reconstruction
 
 Mark disputed attribution, uncertain dating, missing context, and translation ambiguity. Label generated scenes as illustration or reconstruction. Avoid presenting a single critical reading as the only accepted meaning.
+
+## Visual source continuity
+
+When an original scan, manuscript, edition page, archival photograph, or primary document supports the narration, keep it in the video sequence. Use this order when possible:
+
+1. Untouched original to establish provenance
+2. Annotated copy to locate the exact passage or detail
+3. Semantic animation or reconstruction to explain the relationship
+
+Do not label a modern digital transcription, re-typeset quotation, or database text as an original scan. Do not let a generated historical reconstruction replace the real page or archival source. Crop only after the full source has been established, and keep edition, page, passage, or archival identifiers readable when they matter to the claim.
