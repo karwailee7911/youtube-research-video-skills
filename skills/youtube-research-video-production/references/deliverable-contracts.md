@@ -18,11 +18,16 @@ video-project/
 │   ├── source-annotated/
 │   ├── generated-scenes/
 │   └── evidence/
+├── 06_visual_master_no_text_no_audio.mp4
 ├── 06_voice_final.wav
+├── 06_sfx_only.wav                  # optional; omit when no SFX are used
+├── 06_bgm_only.wav                  # optional only when BGM is approved
+├── 06_reference_publish_master.mp4  # optional viewing reference, not the editable source
 ├── 07_subtitles_asr_scaffold.srt
 ├── 08_subtitles_final.srt
 ├── 08_subtitle_role_manifest.json   # optional for role styling
 ├── 09_timeline_map.md
+├── 10_nle_media_registry.json
 ├── 10_jianying_placement_record.md
 ├── 11_thumbnail.png
 ├── 12_upload_metadata.md
@@ -70,7 +75,9 @@ Changing spoken wording after voice generation invalidates subtitle text, timing
 
 Before audio, use script cues instead of guessed timecodes. After final audio, replace them with exact ranges.
 
-Include every class needed by the script: original source, annotated source, generated scene, and evidence visualization.
+Include every class needed by the script: original source, annotated source, generated scene, evidence visualization, and editorial connective graphics. For each moving shot, also record its semantic subject, subject change, no-crop region, subtitle-safe region, and source/authenticity class.
+
+For source-led claims, the manifest should preserve `original source → annotated source → semantic explanation` instead of replacing the source with a generated scene.
 
 ## Subtitle alignment contract
 
@@ -116,6 +123,20 @@ Record:
 - Subtitle end versus audio/project duration
 - Remaining listening checks
 
+`10_nle_media_registry.json` records each inserted asset's stable absolute path, role, codec, duration, hash, material ID, and segment IDs. It must distinguish visual-only, voice, SFX, optional BGM, native subtitles, and any external reference export.
+
+## Editable NLE contract
+
+The Jianying draft must retain:
+
+- A visual-only video layer with no baked captions or audio
+- A final-voice audio layer
+- An SFX-only layer when SFX exist
+- A BGM-only layer only when BGM is approved
+- Native Jianying subtitle materials
+
+A baked publish master may accompany the project as a reference but cannot be the only editable media. All timeline references and material/media registrations must point to stable files outside temporary or session directories. Run a short codec-and-link smoke test before full-duration insertion.
+
 ## Upload metadata contract
 
 `12_upload_metadata.md` contains:
@@ -136,6 +157,9 @@ Record:
 
 - Full export plays without missing media
 - Every visual class appears at the matching spoken passage
+- Original or archival material remains present where it is the basis of the claim
+- Dynamic shots animate semantic subjects without cropping required words, units, source lines, or evidence
+- Subject-only motion review passes after captions and decorative background motion are excluded
 - Subtitle import is readable and exact
 - Subtitle starts and ends match audible speech at required checkpoints
 - Speaker colors match role changes
@@ -144,4 +168,6 @@ Record:
 - Thumbnail text and title promise match the video
 - Chapters match final duration
 - Description links work
+- Jianying keeps visual-only, voice, SFX, optional BGM, and native subtitles independently editable
+- Timeline references and draft media registrations resolve after decrypt/readback
 - Published URL and 24-hour/7-day follow-up dates
