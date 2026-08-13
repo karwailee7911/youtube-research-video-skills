@@ -14,7 +14,7 @@ Read [references/deliverable-contracts.md](references/deliverable-contracts.md) 
 - Technology or science: [references/domain-technology.md](references/domain-technology.md)
 - Literature, philosophy, or history: [references/domain-literature-history.md](references/domain-literature-history.md)
 
-Read [references/subtitle-alignment-qc.md](references/subtitle-alignment-qc.md) whenever audio or subtitles are in scope. Read [references/jianying-direct-draft.md](references/jianying-direct-draft.md) before touching a Jianying draft.
+Read [references/subtitle-alignment-qc.md](references/subtitle-alignment-qc.md) whenever audio or subtitles are in scope. Read [references/modern-evidence-motion.md](references/modern-evidence-motion.md) whenever modern research evidence will appear on screen. Read [references/jianying-direct-draft.md](references/jianying-direct-draft.md) before touching a Jianying draft.
 
 ## Hard rules
 
@@ -98,6 +98,8 @@ Create a visual manifest before generating assets. Use the classes that fit the 
 - Modern evidence cards, charts, comparisons, diagrams, or short contrast cards
 
 Use 16:9 for standard inserts. Use a wide canvas such as 7200×900 only when a controlled horizontal pan supports the narration. Give every asset a stable numbered filename and source/authenticity note.
+
+When presenting modern datasets, surveys, paper findings, official statistics, or other quantitative evidence, follow [references/modern-evidence-motion.md](references/modern-evidence-motion.md). Treat these passages as designed evidence shots: invoke the installed `$video-shotcraft` skill in single-shot mode, select a suitable Gallery motion, and use action-matched SFX. Use BGM when it can continue naturally across the surrounding section without masking narration or creating an audible seam. Route to the installed GSAP skills only when the chosen implementation actually uses DOM/SVG/web animation or needs GSAP-specific sequencing. Do not force GSAP into an existing verified Remotion or Jianying path.
 
 Assign provisional placement by script cue. Wait for final audio before assigning exact timecodes. Do not rotate visuals on a fixed interval. Keep an image on screen while its evidence remains the subject.
 
@@ -196,6 +198,7 @@ Verify:
 - Chapters and description links are correct.
 - Every visible non-source text string appears in an approved audience-copy list; no production direction, motion note, asset label, shot ID, frame count, or implementation comment is visible.
 - Every multi-card evidence frame passes a collision check: cited source text remains readable, cards do not cover unrelated headings or statistics, and overlap communicates hierarchy rather than accidental crowding.
+- Every animated modern-evidence passage passes the evidence-motion review in [references/modern-evidence-motion.md](references/modern-evidence-motion.md), including source fidelity, number readability, motion purpose, sound synchronization, and applicable `video-shotcraft` aesthetic/final-review checks.
 
 After publication, record 24-hour and 7-day impressions, click-through rate, average view duration, retention drops, traffic sources, search terms, and viewer confusion. Feed those results into the next topic gate.
 
