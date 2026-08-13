@@ -20,7 +20,9 @@ Read [references/subtitle-alignment-qc.md](references/subtitle-alignment-qc.md) 
 
 - Follow this order: `approved topic → research → locked script → visual package → final voice → acoustic alignment → timeline → direct draft edit → readback QC → thumbnail → upload package`.
 - Treat the final audio as the only master clock. Regenerated audio invalidates subtitle, chapter, and visual timecodes.
+- Finish acoustic alignment and the final visual timeline against the final audio before writing anything into Jianying. Then import video/visuals and subtitles as separate tracks in the same aligned timeline. Subtitles must remain native and editable; never burn subtitles into the video asset used for Jianying assembly.
 - Do not control the desktop, click Jianying, open and close Jianying, or use GUI automation. Edit draft files directly when the user asks for assembly.
+- Reuse the last verified Jianying import/edit method whenever it still works. Do not research, prototype, or switch to a new import path merely because another method exists. Change methods only after the verified path produces a reproducible failure with recorded evidence, or when the user explicitly requests a different method. Explain the failure and proposed replacement before switching.
 - Back up every Jianying file that will change. Write atomically. Decrypt and read back the saved result before reporting success.
 - Do not use low-quality ASR as a final timing source. Do not stretch missing transcript text between a few manual anchors.
 - Place all relevant source, evidence, and generated visual classes at their matching spoken passages. Do not populate only one class.
@@ -99,6 +101,12 @@ Use 16:9 for standard inserts. Use a wide canvas such as 7200×900 only when a c
 
 Assign provisional placement by script cue. Wait for final audio before assigning exact timecodes. Do not rotate visuals on a fixed interval. Keep an image on screen while its evidence remains the subject.
 
+Keep production directions in the visual manifest only. Labels such as `画面动作`、`扫描`、`停住`、`标注`、camera directions, timing notes, asset IDs, shot numbers, frame counts, and implementation comments are never audience-facing copy and must not be rendered into the video. If a styleframe contains such notes, treat it as a planning artifact rather than a renderable asset.
+
+Preserve useful evidence motions when they clarify the narration: scan the primary-source page, pause on the cited passage, then mark the exact keywords in sequence. The motion itself should communicate this process; do not explain the motion with an on-screen production note.
+
+For evidence-desk compositions that combine primary sources and modern evidence, assign each card an owned rectangle and readable z-order before rendering. Primary-source pages may overlap slightly as a deliberate stack, but one page must not cover the cited passage on another. Charts, statistics, and explanatory copy must not collide with page cards. When the layout cannot satisfy these constraints, use side-by-side placement or sequential reveals instead of adding more overlap.
+
 ## Stage 4: Prepare the final-voice handoff
 
 Give the user:
@@ -138,11 +146,12 @@ At minimum:
 2. Decrypt the newest active timeline and metadata.
 3. Count and record existing video, audio, and text tracks.
 4. Back up every target file outside the draft folder.
-5. Add or replace only the generated tracks.
-6. Preserve unrelated materials and tracks.
-7. Encrypt once, then write atomically to every active timeline copy.
-8. Update the root index modification time without renaming the draft unless asked.
-9. Decrypt the saved result and verify counts, duration, hashes, ordering, and media paths.
+5. Confirm the video/visual timeline and subtitle cues are already aligned to the same final-audio clock before draft insertion.
+6. Add or replace the video/visual track and native editable subtitle track as separate track groups. Never substitute a subtitle-burned video for these separate tracks.
+7. Preserve unrelated materials and tracks.
+8. Encrypt once, then write atomically to every active timeline copy.
+9. Update the root index modification time without renaming the draft unless asked.
+10. Decrypt the saved result and verify counts, duration, hashes, ordering, media paths, and continued subtitle editability.
 
 SRT does not carry reliable per-speaker Jianying colors. Use a normal single-color subtitle track for one speaker. When the user wants role colors, create native Jianying text materials from the role manifest. Default to white for `主讲人` and cyan-blue for `提问者`, unless the user specifies another palette.
 
@@ -180,10 +189,13 @@ Verify:
 - Visual changes match spoken passages.
 - Subtitle text matches the locked script.
 - Subtitle starts and ends match audible speech.
+- The Jianying draft contains separate video/visual and native editable subtitle tracks aligned to the same final audio; the assembly video has no burned-in duplicate subtitles.
 - Speaker colors change at the correct turns.
 - Source quotations, numbers, and interpretations match citations.
 - Thumbnail text, title, and opening make the same promise.
 - Chapters and description links are correct.
+- Every visible non-source text string appears in an approved audience-copy list; no production direction, motion note, asset label, shot ID, frame count, or implementation comment is visible.
+- Every multi-card evidence frame passes a collision check: cited source text remains readable, cards do not cover unrelated headings or statistics, and overlap communicates hierarchy rather than accidental crowding.
 
 After publication, record 24-hour and 7-day impressions, click-through rate, average view duration, retention drops, traffic sources, search terms, and viewer confusion. Feed those results into the next topic gate.
 
